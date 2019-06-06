@@ -1,6 +1,6 @@
 <?php
 // konstantos (nekintantys kintamieji)
-define('DB_NAME', 'pirmadienis' );
+define('DB_NAME', 'begin' );
 define('MYSQL_USER', 'root' );
 define('MYSQL_PASSWORD', '' );
 define('DB_HOST', 'localhost' );

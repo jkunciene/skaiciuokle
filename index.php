@@ -1,49 +1,26 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title></title>
+<?php
 
-        <!-- !!! mano CSS failas vissada zemiau, nie kiti css failai -->
-        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
-        <link rel="stylesheet" href="./libs/bootstrap/css/bootstrap.css">
+include("header.php");
+ ?>
 
-        <!-- !!idedame CSS faila, nes kitaip neveiks -->
-        <link rel="stylesheet" href="css/main.css">
-        <!-- NOTE: jeigu neveikia:
-            1) ar failo pavadinimas geras
-            2) ar kelias geras?   (ar "/" teisingi; direktorija ar gere )
-            3) ar   rel="stylesheet"
-            4) ar link uzdalete ">"
-         -->
-    </head>
-    <body>
+ <?php require_once('db_functions.php') ?>
 
-        <h1>apskaita suprantamai</h1>
-        <?php
-         require_once('db_functions.php');
+<section class="container">
+    <div class="row justify-content-start mt-3 ">
+        <div class="col-4" >
+            <img class="slepti img-fluid" src="img/lapas.jpg"  alt="individualūs buhalterių mokymai">
+        </div>
+        <div class="col-5 text-justify">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class="col-3 text-justify">
+            <aside class="">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </aside>
+        </div>
+    </div>
+</section>
+<?php
+include("footer.php");
 
-
-          echo "==============  dazniausiai uzduodami klausimai ===========<br />";
-
-          for ($i=0; $i < 6; $i++) {
-               $kl = getQuestion($i);
-               if (isset($kl)) {
-                   echo "<li><a href='doctor.php?nr=$i'> " .  $kl['question'] . "</a></li>";
-               }
-
-          }
-            ?>
-
-
-
-
-        <!-- js puslapio apacioje -->
-        <script src="http://code.jquery.com/jquery-3.3.1.min.js"  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <!-- !!! mano js failas - VISADA pats zemiausias -->
-        <!-- <script type="text/javascript" src="js/main.min.js">     </script> -->
-        <script type="text/javascript" src="js/main.js">     </script>
-    </body>
-</html>
+ ?>

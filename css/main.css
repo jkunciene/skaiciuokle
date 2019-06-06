@@ -1,6 +1,10 @@
 h1 {
-    color: red;
+    text-align: center;
 }
+.pilkasfonas {
+    background-color: #ebebe0;
+}
+
 .aukstis-100 {
     height: 100px;
 }
@@ -12,4 +16,16 @@ h1 {
 }
 .aukstis-500 {
     height: 500px;
+}
+.bg-foto {
+    background-image: url('../img/vanduo.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+@media (max-width: 1040px) {
+    .slepti {
+        display: none;}
 }

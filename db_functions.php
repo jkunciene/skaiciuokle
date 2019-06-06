@@ -4,43 +4,51 @@
     // include_once('nustatymai.php');
     // include('nustatymai.php');
 
-    //PRISIJUNTIMAS
     $prisijungimas = mysqli_connect(DB_HOST,  MYSQL_USER, MYSQL_PASSWORD, DB_NAME   );
 
-    // kad lietuviskos ir ru veiktu
     mysqli_set_charset($prisijungimas, 'utf8mb4');
 
-    // ! - AR FALSE?
     if( !$prisijungimas )   {
         echo "ERROR:  prisijungti prie DB nepavyko  !!!" . mysqli_connect_error();
     }
-    function getPrisijungtimas() {
+    function getPrisijungimas() {
         global $prisijungimas;
         return $prisijungimas;
     }
-    getPrisijungtimas();
+    getPrisijungimas();
 
-/*
-    $nr - id duomenu bazeje (vartotojo klausimo)
-    return - array
-*/
-    function getQuestion( $nr ) {
-        // $query
-        $manoSQL = "SELECT * FROM klausimai  WHERE id='$nr'   ";
-        // $rezultatai - mysql'o objektas
-        $rezultataiOBJ = mysqli_query(getPrisijungtimas(),  $manoSQL); // print_r(    $rezultataiOBJ );  // test
-        $rezultataiArray = mysqli_fetch_assoc($rezultataiOBJ);     // print_r(    $rezultataiArray );  // test
-        // $rezultataiArray = mysqli_fetch_row($rezultataiOBJ);     // print_r(    $rezultataiArray );  // test
-        return $rezultataiArray;
+        function createQuestion($vardas, $email, $question){
+        $vardas_apdorotas =  mysqli_real_escape_string (getPrisijungimas(), $vardas );
+        $question_apdorotas =  mysqli_real_escape_string (getPrisijungimas(), $question );
+        $mano_sql_tekstas = "INSERT INTO questions
+                                    VALUES('', '$vardas_apdorotas', '$email', '$question_apdorotas', NOW());
+                            ";
+        $arPavyko = mysqli_query(   getPrisijungimas() , $mano_sql_tekstas);
+        if ( !$arPavyko ) {
+             echo "EROROR: nepavyko pateikti klausimo." . mysqli_error( getPrisijungimas() );
+        } else {
+        }
     }
 
+    function getAtsakymai($nr) {
+        $mano_sql_tekstas = "SELECT * FROM atsakymai
+                            WHERE klausimoNumeris='$nr'
+                            ";
+        $rezultatai = mysqli_query( getPrisijungimas() , $mano_sql_tekstas);
+             return $rezultatai;
+        }
 
-     //print_r($klausimas2); // test
-    // $gydytojas3 = getDoctor( 3 );
-    // print_r($gydytojas3); // test
-    // $gydytojas1 = getDoctor( 1 );
-    // $gydytojas4 = getDoctor( 4 );
+    
+    function getQuestions($kiekis = 99999) {
+        $mano_sql_tekstas = "SELECT * FROM questions
 
-    //
+                                      LIMIT $kiekis
+                            ";
+        $rezult = mysqli_query( getPrisijungimas() , $mano_sql_tekstas);
 
- ?>
+                if ( $rezult ) {
+             return $rezult;
+        } else {
+            return NULL; //
+        }
+    }
