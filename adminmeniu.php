@@ -39,7 +39,7 @@ include ('db_functions.php');
       <?php // IDEA: amžiais nepamiršk, Jolita po href ?nr= išsineši reikalingus duomeis ?>
       <?php
 
-          for ($i=1; $i < 21; $i++) {
+          for ($i=1; $i < 30; $i++) {
 
           $laikinas = getKlausima( $i );
                   echo "<li> <a href= 'klausimu_formos.php?nr=$i'>". $laikinas['id']."    ".$laikinas['name']."    ".$laikinas['question']."</a></li>";
@@ -53,7 +53,7 @@ include ('db_functions.php');
         <p>Norint ištrinti, pasirinkti norimą klausimą ir spausti  ant jo</p>
         <?php
 
-            for ($i=1; $i < 21; $i++) {
+            for ($i=1; $i < 30; $i++) {
 
             $laikinas = getKlausima( $i );
                     echo "<li> <a href= 'questdelete.php?nr=$i'>". $laikinas['id']."    ".$laikinas['name']."    ".$laikinas['question']."</a></li>";
@@ -106,11 +106,16 @@ include ('db_functions.php');
 
 <?php // IDEA: galerija nepradėta, po search ir email siuntimo jei spėsiu imsiuosi?>
 <div class="row">
+     <div class="column" style="background-color:#aaa;">
+         <h2>Įkelti naują foto</h2>
+         <p>Norint įkelti naują foto spauskite mygtuką ir būsite nukreipti į įvedimo formą</p>
+     </div>
+    <div class="column" style="background-color:#bbb;">
+        <h2>Koreguoti foto</h2>
+        <p>Norint koreguoti foto spauskite mygtuką ir būsite nukreipti į įvedimo formą</p>
+    </div>
     <div class="column" style="background-color:#ccc;">
-      <h2>Galerijos valdymas</h2>
-      <p>Pasirinkti norimą klausimą ir spausti mygtuką: SUKURTI NAUJĄ, KOREGUOTI arba PAŠALINTI</p>
-
-
-
+        <h2>Trinti foto</h2>
+        <p>Trinti foto spauskite mygtuką</p>
     </div>
 </div>

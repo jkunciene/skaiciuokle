@@ -6,8 +6,8 @@ include("header.php");
 
 
               <div class="container">
-                  <h3>Turite klausimų, rašykite mums</h3>
-       <form action="siusti.php" method="get">
+                  <h3 class="text-center">Turite klausimų? Naudokite paiešką, galbūt jau yra atsakymas į Jums rūpimą klausimą, jei neradote, rašykite mums</h3>
+       <form action="siusti.php" method="post">
          <div class="row">
 
            <div class="col-25">
@@ -35,7 +35,7 @@ include("header.php");
            </div>
          </div>
          <div class="row">
-           <input type="submit" value="Submit">
+           <button type="submit" value="Submit" >Siųsti</button>
          </div>
        </form>
      </div>

@@ -20,9 +20,10 @@
 // IDEA: sukuriu, irašau klausimą į DB
         function createQuestion($vardas, $email, $question){
         $vardas_apdorotas =  mysqli_real_escape_string (getPrisijungimas(), $vardas );
+        $email_apdorotas =  mysqli_real_escape_string (getPrisijungimas(), $email );
         $question_apdorotas =  mysqli_real_escape_string (getPrisijungimas(), $question );
         $mano_sql_tekstas = "INSERT INTO questions
-                                    VALUES('', '$vardas_apdorotas', '$email', '$question_apdorotas', NOW());
+                                    VALUES('', '$vardas_apdorotas', '$email_apdorotas', '$question_apdorotas', NOW());
                             ";
         $arPavyko = mysqli_query(   getPrisijungimas() , $mano_sql_tekstas);
         if ( !$arPavyko ) {
@@ -160,3 +161,28 @@ function updateAtsakymas($id, $atsakymas, $klausimoNumeris) {
 
         $rezult = mysqli_query(getPrisijungimas(),  $mano_sql_tekstas );
     }
+    // IDEA: funkcijos darbui su foto
+
+    // function getFoto($b) {
+    //     $mano_sql_tekstas = "SELECT * FROM foto WHERE id='$b' ";
+    //     $result = mysqli_query(getPrisijungimas(),  $mano_sql_tekstas);
+    //     $resultMasyvas = mysqli_fetch_assoc($result);
+    //     return $resultMasyvas;
+    // }
+
+
+// IDEA: funkcija naudoju caruselėje
+      function getFotkes($itemLimit = 10) {
+          $mano_sql_tekstas = "SELECT * FROM foto WHERE id > 1 LIMIT $itemLimit ";
+          $result = mysqli_query(getPrisijungimas(),  $mano_sql_tekstas);
+          return $result;
+      }
+// IDEA: funkcija reikalinga paieskai DB atsakymuose
+
+function getSearchRezultata($keywords){
+    $mano_sql = "SELECT * FROM atsakymai WHERE atsakymas='%$keywords%'";
+    $atsOBJ = mysqli_query(getPrisijungimas(),  $mano_sql);
+    $atsArray = mysqli_fetch_assoc($atsOBJ);
+    return $atsArray;
+
+}

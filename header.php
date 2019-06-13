@@ -26,16 +26,18 @@
                         <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="skaiciuokle.php">Count</a>
+                        <a class="nav-link" href="galerija.php">Foto</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="duk.php">Questions</a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0" action="search.php" method="get">
-                    <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <form action="search.php"    method="GET"   class="form-inline my-2 my-lg-0" >
+                    <input type="text" class="form-control mr-sm-2" name="keywords" aria-label="Search" placeholder="ieškomas žodis">
+
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="Searchs">Search</button>
                 </form>
+
             </div>
         </nav>
     </div>
