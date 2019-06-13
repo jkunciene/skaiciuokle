@@ -43,10 +43,10 @@ try {
     //Content
     $mail->isHTML(true);                                  // Set email format to HTML
     $mail->Subject = 'Klausimas';
-    $mail->Body    = " <b>Klienatas klausia:</b>   $klientoKlausimas" ;
-    $mail->AltBody = " Klieantas klausia: $klientoPastas";
+    $mail->Body    = " <b>Klientas klausia:</b>   $klientoKlausimas" ;
+    $mail->AltBody = " Klientas klausia: $klientoPastas";
     $mail->send();
-    echo '<div class="bg-info"> ZINUTE ISSIUSTA SEKMINGAI     </div>';
+    echo '<div class="bg-info"> Email išsiųstas sėkmingai     </div>';
 } catch (Exception $e) {
     echo '<div class="bg-danger"> neveikia     </div>' . $mail->ErrorInfo;
 }

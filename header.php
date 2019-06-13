@@ -33,9 +33,8 @@
                     </li>
                 </ul>
                 <form action="search.php"    method="GET"   class="form-inline my-2 my-lg-0" >
-                    <input type="text" class="form-control mr-sm-2" name="keywords" aria-label="Search" placeholder="ieškomas žodis">
-
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="Searchs">Search</button>
+                    <input type="text" class="form-control mr-sm-2" name="query" aria-label="Search" placeholder="ieškomas žodis">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Search">Search</button>
                 </form>
 
             </div>
